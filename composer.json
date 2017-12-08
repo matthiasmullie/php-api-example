@@ -10,7 +10,7 @@
   "authors": [
     {
       "name": "Matthias Mullie",
-      "homepage": "http://www.mullie.eu",
+      "homepage": "https://www.mullie.eu",
       "email": "php-api@mullie.eu",
       "role": "Developer"
     }
@@ -18,12 +18,11 @@
   "require": {
     "php": "^7.0",
     "matthiasmullie/php-api": "^1.0",
-    "symfony/yaml": "^3.2"
+    "symfony/yaml": "^3.2|^4.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.8"
-  },
-  "suggest": {
+    "friendsofphp/php-cs-fixer": "~2.0",
+    "phpunit/phpunit": "~6.0"
   },
   "autoload": {
     "psr-4": {

@@ -2,7 +2,7 @@
 
 
 This repository is just an example of how to implement an API with
-[matthiasmullie/php-api]. With tests & everything!
+[matthiasmullie/php-api](https://github.com/matthiasmullie/php-api). With tests & everything!
 
 Just explore the code! Or keep reading for a very quick overview.
 
@@ -61,14 +61,16 @@ And it's easy to test your APIs! It comes with 2 helper TestCases:
 
 
 This one makes it easy to test your entire thing, including bootstrapping.
-It'll let you do requests to `localhost`, which should serve your **index.php**.
+It'll let you do requests to `server` (provided by docker-compose), which should
+serve your **index.php**.
 
-A Dockerfile is included to quickly get this up and running (see further down.)
+A docker-compose.yml/Dockerfile is included to quickly get this up and running
+(see further down.)
 
 This will let you perform end-to-end tests, where you just feed input into your
 API (a specific request) and test the response from the API.
 
-This will perform a real, actualy server request. It'll go through your
+This will perform a real, actual server request. It'll go through your
 controllers, bootstrapping, everything. And come back with the result.
 
 
@@ -87,21 +89,12 @@ Use whichever you prefer!
 ## Docker & Travis CI
 
 In order to quickly get your API running on your local machine (or anything
-supporting Docker images), just build the provided **Dockerfile**:
+supporting Docker images), just build the docker-compose suite by issuing this
+makefile command:
 
 ```
-docker build -t my_app .
-docker run -d -p 80:80 --name php-api -v ~/my_path:/var/www my_app
+make test
 ```
 
-Make sure to substitute *my_app* and *~/my_path*.
-
-Actually, you don't really need to include `-v ~/my_path:/var/www`, that is only
-if you want to be able to make changes to the project and see them reflected in
-your docker instance. You can omit that if you don't need it (e.g. on CI.)
-
-The Dockerfile is just the defailt php:7-apache image, with added mod_rewrite.
-If you need anything else for your project, you may need to alter it!
-
-With the included **.travis.yml** config, you should have thoses tests on
+With the included **.travis.yml** config, you should have those tests on
 Travis CI in no time!
